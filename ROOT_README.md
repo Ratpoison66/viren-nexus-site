@@ -15,8 +15,12 @@ cd "C:\OneDrive\Desktop\Documents\viren vortex site\viren-nexus-site"
 2. Install dependencies (only `live-server` is required for local dev):
 
 ```powershell
+<<<<<<< Updated upstream
+npm install
+=======
 npm init -y
 npm install --save-dev live-server
+>>>>>>> Stashed changes
 ```
 
 3. Start the dev server and open the site in your browser:
@@ -25,7 +29,11 @@ npm install --save-dev live-server
 npm start
 ```
 
+<<<<<<< Updated upstream
+The site will be served from the `src/pages` folder. If the browser doesn't open automatically, visit http://127.0.0.1:5173 (or the port printed by live-server).
+=======
 The site will be served from the `src/pages` folder. If the browser doesn't open automatically, visit <http://127.0.0.1:5173> (or the port printed by live-server).
+>>>>>>> Stashed changes
 
 Project structure
 

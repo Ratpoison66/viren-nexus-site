@@ -39,4 +39,8 @@ Optional: Create a Windows helper script
 
 If you'd like, I can add a `serve.ps1` script that runs `npm start` for you and prints the URL. Say the word and I'll add it.
 
+<<<<<<< Updated upstream
 Want a build pipeline or deployment? I can add a minimal `vite` setup and GitHub Pages deploy script or Netlify config. Tell me which you'd prefer and I’ll implement it.
+=======
+Want a build pipeline or deployment? I can add a minimal `vite` setup and GitHub Pages deploy script or Netlify config. Tell me which you'd prefer and I’ll implement it.
+>>>>>>> Stashed changes

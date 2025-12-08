@@ -6,7 +6,10 @@
   "scripts": {
     "dev": "npx live-server src/pages --port=5173 --open=src/pages/index.html",
     "start": "npm run dev",
-    "build": "echo 'Build process not defined yet.'"
+    "vite:dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "build:info": "echo 'Build outputs to ./dist after running `npm run build`'"
   },
   "keywords": [
     "VIREN",
@@ -20,7 +23,9 @@
   "dependencies": {
     "live-server": "^1.2.1"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "vite": "^5.0.0"
+  },
   "homepage": "https://yourwebsite.com",
   "repository": {
     "type": "git",
