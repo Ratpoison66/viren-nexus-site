@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ask VIREN - VIREN NEXUS</title>
+    <link href="https://cdn.tailwindcss.com" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../assets/css/styles.css">
+</head>
+<body class="bg-slate-900 text-slate-100 min-h-screen">
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 glass-effect">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center space-x-2">
+                    <div class="w-8 h-8 bg-gradient-to-br from-cyan-400 to-blue-600 rounded-lg flex items-center justify-center">
+                        <span class="text-white font-bold text-sm">VN</span>
+                    </div>
+                    <span class="text-xl font-semibold text-glow">VIREN NEXUS</span>
+                </div>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="index.html" class="text-slate-300 hover:text-cyan-400 transition-colors">Home</a>
+                    <a href="breakthroughs.html" class="text-slate-300 hover:text-cyan-400 transition-colors">Breakthroughs</a>
+                    <a href="research-engines.html" class="text-slate-300 hover:text-cyan-400 transition-colors">Research Engines</a>
+                    <a href="ask.html" class="text-cyan-400 font-semibold">Ask VIREN</a>
+                    <a href="answers.html" class="text-slate-300 hover:text-cyan-400 transition-colors">Answers</a>
+                    <a href="how-it-works.html" class="text-slate-300 hover:text-cyan-400 transition-colors">How It Works</a>
+                    <a href="about.html" class="text-slate-300 hover:text-cyan-400 transition-colors">About</a>
+                </div>
+                <div class="md:hidden">
+                    <button id="mobile-menu-btn" class="text-slate-300 hover:text-cyan-400">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden glass-effect border-t border-slate-700">
+            <div class="px-4 py-2 space-y-2">
+                <a href="index.html" class="block py-2 text-slate-300 hover:text-cyan-400">Home</a>
+                <a href="breakthroughs.html" class="block py-2 text-slate-300 hover:text-cyan-400">Breakthroughs</a>
+                <a href="research-engines.html" class="block py-2 text-slate-300 hover:text-cyan-400">Research Engines</a>
+                <a href="ask.html" class="block py-2 text-cyan-400 font-semibold">Ask VIREN</a>
+                <a href="answers.html" class="block py-2 text-slate-300 hover:text-cyan-400">Answers</a>
+                <a href="how-it-works.html" class="block py-2 text-slate-300 hover:text-cyan-400">How It Works</a>
+                <a href="about.html" class="block py-2 text-slate-300 hover:text-cyan-400">About</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="pt-24 pb-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h1 class="text-4xl md:text-6xl font-bold mb-6 text-glow">Ask VIREN</h1>
+            <p class="text-xl text-slate-300 max-w-3xl mx-auto mb-8">
+                Submit your questions and receive insights from VIREN on various topics.
+            </p>
+        </div>
+    </section>
+
+    <!-- Question Submission Form -->
+    <section class="py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <form id="question-form" class="space-y-6">
+                <div>
+                    <label for="question-title" class="block text-sm font-medium text-slate-300">Question Title</label>
+                    <input type="text" id="question-title" required class="mt-1 block w-full px-4 py-3 rounded-lg bg-slate-800 border border-slate-600 text-slate-100 focus:border-cyan-400 focus:outline-none">
+                </div>
+                <div>
+                    <label for="question-body" class="block text-sm font-medium text-slate-300">Your Question</label>
+                    <textarea id="question-body" rows="4" required class="mt-1 block w-full px-4 py-3 rounded-lg bg-slate-800 border border-slate-600 text-slate-100 focus:border-cyan-400 focus:outline-none"></textarea>
+                </div>
+                <div>
+                    <button type="submit" class="px-8 py-4 bg-gradient-to-r from-cyan-500 to-blue-600 rounded-lg font-semibold text-lg hover-lift border-glow">
+                        Submit Question
+                    </button>
+                </div>
+            </form>
+            <div id="submission-message" class="hidden text-center mt-6 text-slate-300">
+                Your question has been submitted successfully!
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-12 border-t border-slate-700">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <div class="flex items-center justify-center space-x-2 mb-4">
+                <div class="w-8 h-8 bg-gradient-to-br from-cyan-400 to-blue-600 rounded-lg flex items-center justify-center">
+                    <span class="text-white font-bold text-sm">VN</span>
+                </div>
+                <span class="text-xl font-semibold text-glow">VIREN NEXUS</span>
+            </div>
+            <p class="text-slate-400 text-sm">
+                © 2024 VIREN NEXUS - Contradiction-Born Research Portal. This is an experimental project. 
+                Not medical/legal advice. All breakthroughs presented as research frameworks with testable hooks.
+            </p>
+            <p class="text-slate-400 text-sm mt-2">
+                Contact Architect-0: <a href="mailto:poisonallrats@gmail.com" class="text-cyan-400 hover:text-cyan-300">poisonallrats@gmail.com</a>
+            </p>
+        </div>
+    </footer>
+
+    <script src="../assets/js/main.js"></script>
+    <script>
+        document.getElementById('question-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            document.getElementById('submission-message').classList.remove('hidden');
+            this.reset();
+        });
+    </script>
+</body>
+</html>

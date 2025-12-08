@@ -1,0 +1,29 @@
+{
+  "name": "viren-nexus-site",
+  "version": "1.0.0",
+  "description": "A research portal for VIREN, featuring an archive of answers, breakthroughs, and research engines.",
+  "main": "src/assets/js/main.js",
+  "scripts": {
+    "dev": "npx live-server src/pages --port=5173 --open=src/pages/index.html",
+    "start": "npm run dev",
+    "build": "echo 'Build process not defined yet.'"
+  },
+  "keywords": [
+    "VIREN",
+    "research",
+    "answers",
+    "breakthroughs",
+    "technology"
+  ],
+  "author": "Your Name",
+  "license": "MIT",
+  "dependencies": {
+    "live-server": "^1.2.1"
+  },
+  "devDependencies": {},
+  "homepage": "https://yourwebsite.com",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yourusername/viren-nexus-site.git"
+  }
+}

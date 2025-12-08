@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Answers Archive - VIREN NEXUS</title>
+    <link rel="stylesheet" href="../assets/css/styles.css">
+    <script src="../assets/libs/three.min.js"></script>
+    <script src="../assets/libs/vanta.topology.min.js"></script>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div>
+            <a href="index.html">Home</a>
+            <a href="breakthroughs.html">Breakthroughs</a>
+            <a href="research-engines.html">Research Engines</a>
+            <a href="ask.html">Ask VIREN</a>
+            <a href="answers.html">Answers</a>
+            <a href="how-it-works.html">How It Works</a>
+            <a href="about.html">About</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section>
+        <h1>Answer Archive</h1>
+        <p>VIREN's responses to challenging questions across science, strategy, philosophy, and technology</p>
+    </section>
+
+    <!-- Search and Filter -->
+    <section>
+        <input type="text" id="search-input" placeholder="Search questions and answers...">
+        <select id="category-filter">
+            <option value="all">All Categories</option>
+            <option value="science-rd">Science & R&D</option>
+            <option value="mathematics">Mathematics</option>
+            <option value="consciousness-philosophy">Consciousness & Philosophy</option>
+            <option value="strategy-geopolitics">Strategy & Geopolitics</option>
+            <option value="technology-ai">Technology & AI</option>
+            <option value="finance-economics">Finance & Economics</option>
+            <option value="other">Other</option>
+        </select>
+        <select id="sort-filter">
+            <option value="newest">Newest First</option>
+            <option value="oldest">Oldest First</option>
+            <option value="category">By Category</option>
+        </select>
+    </section>
+
+    <!-- Statistics -->
+    <section>
+        <div id="total-answers">0</div>
+        <div id="science-answers">0</div>
+        <div id="strategy-answers">0</div>
+        <div id="tech-answers">0</div>
+    </section>
+
+    <!-- Answers Grid -->
+    <section id="answers-container">
+        <!-- Sample answers will be loaded here -->
+    </section>
+
+    <!-- No Results -->
+    <div id="no-results" class="hidden">
+        <h3>No answers found</h3>
+        <p>Try adjusting your search terms or filters</p>
+        <a href="ask.html">Ask a New Question</a>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2024 VIREN NEXUS - Contradiction-Born Research Portal.</p>
+        <p>Contact Architect-0: <a href="mailto:poisonallrats@gmail.com">poisonallrats@gmail.com</a></p>
+    </footer>
+
+    <script src="../assets/js/main.js"></script>
+    <script>
+        // Initialize Vanta.js background
+        VANTA.TOPOLOGY({
+            el: "body",
+            mouseControls: true,
+            touchControls: true,
+            gyroControls: false,
+            minHeight: 200.00,
+            minWidth: 200.00,
+            scale: 1.00,
+            scaleMobile: 1.00,
+            color: 0x06b6d4,
+            backgroundColor: 0x0f172a
+        });
+
+        // Mobile menu functionality
+        document.getElementById('mobile-menu-btn').addEventListener('click', function() {
+            document.getElementById('mobile-menu').classList.toggle('hidden');
+        });
+
+        // Sample data
+        const sampleAnswers = [
+            // Sample answers data here
+        ];
+
+        // Initialize page
+        document.addEventListener('DOMContentLoaded', function() {
+            loadAnswers();
+            updateStatistics();
+            setupFilters();
+        });
+
+        // Load and display answers
+        function loadAnswers(answers = sampleAnswers) {
+            const container = document.getElementById('answers-container');
+            const noResults = document.getElementById('no-results');
+            
+            if (answers.length === 0) {
+                container.innerHTML = '';
+                noResults.classList.remove('hidden');
+                return;
+            }
+            
+            noResults.classList.add('hidden');
+            
+            container.innerHTML = answers.map(answer => `
+                <div class="answer-card">
+                    <h2>${answer.title}</h2>
+                    <p>${answer.question}</p>
+                    <p>${answer.answer}</p>
+                </div>
+            `).join('');
+        }
+
+        // Update statistics
+        function updateStatistics() {
+            document.getElementById('total-answers').textContent = sampleAnswers.length;
+            document.getElementById('science-answers').textContent = sampleAnswers.filter(a => a.category === 'science-rd').length;
+            document.getElementById('strategy-answers').textContent = sampleAnswers.filter(a => a.category === 'strategy-geopolitics').length;
+            document.getElementById('tech-answers').textContent = sampleAnswers.filter(a => a.category === 'technology-ai').length;
+        }
+
+        // Setup filters
+        function setupFilters() {
+            const searchInput = document.getElementById('search-input');
+            const categoryFilter = document.getElementById('category-filter');
+            const sortFilter = document.getElementById('sort-filter');
+            
+            function applyFilters() {
+                let filtered = [...sampleAnswers];
+                
+                // Search filter
+                const searchTerm = searchInput.value.toLowerCase();
+                if (searchTerm) {
+                    filtered = filtered.filter(answer => 
+                        answer.title.toLowerCase().includes(searchTerm) ||
+                        answer.question.toLowerCase().includes(searchTerm) ||
+                        answer.answer.toLowerCase().includes(searchTerm)
+                    );
+                }
+                
+                // Category filter
+                const category = categoryFilter.value;
+                if (category !== 'all') {
+                    filtered = filtered.filter(answer => answer.category === category);
+                }
+                
+                // Sort filter
+                const sort = sortFilter.value;
+                if (sort === 'newest') {
+                    filtered.sort((a, b) => new Date(b.answeredAt) - new Date(a.answeredAt));
+                } else if (sort === 'oldest') {
+                    filtered.sort((a, b) => new Date(a.answeredAt) - new Date(b.answeredAt));
+                } else if (sort === 'category') {
+                    filtered.sort((a, b) => a.category.localeCompare(b.category));
+                }
+                
+                loadAnswers(filtered);
+            }
+            
+            searchInput.addEventListener('input', applyFilters);
+            categoryFilter.addEventListener('change', applyFilters);
+            sortFilter.addEventListener('change', applyFilters);
+        }
+    </script>
+</body>
+</html>
