@@ -24,6 +24,20 @@ Static research portal for VIREN with pages for answers, breakthroughs, research
    ```
 3) Edit files in `src/pages` and `src/assets`, then rerun `npm start` to rebuild/preview.
 
+### Quick automated setup (Windows)
+
+If you'd like a single script to install Node (via winget if available), install dependencies and build the site, use `setup-windows.ps1`:
+
+```powershell
+cd "C:\OneDrive\Desktop\Documents\viren vortex site\viren-nexus-site"
+.\setup-windows.ps1        # installs node (via winget) if missing, installs deps, runs build
+.\n+.\setup-windows.ps1 -Preview  # also starts a preview server after build
+```
+
+Notes:
+- The script attempts to use `winget` to install Node.js LTS if Node is missing. If you don't have `winget`, install Node from https://nodejs.org first.
+- If `npm install` or `npm run build` fail, paste the terminal output here and I will help debug.
+
 ## Deployment (GitHub Pages)
 Push to the `main` branch. The workflow at `.github/workflows/deploy.yml` runs `npm run build` and publishes `dist` to `gh-pages`. In GitHub → Settings → Pages, set source to `gh-pages`. The site will be available at `https://YOUR-USER.github.io/YOUR-REPO/`.
 
