@@ -1,61 +1,30 @@
 # Viren Nexus Site
 
-## Overview
-Viren Nexus is an experimental research portal designed to provide insights and answers across various domains including science, technology, philosophy, and strategy. The site features a collection of answers to user-submitted questions, significant breakthroughs, and detailed information about the research methodologies employed by VIREN.
+Static research portal for VIREN with pages for answers, breakthroughs, research engines, and more.
 
-## Project Structure
-The project is organized as follows:
+## Structure
+- `src/pages` – HTML pages (start at `index.html`).
+- `src/assets/css` – styles.
+- `src/assets/js` – interactivity (e.g., `main.js`, `scroll-animations.js`).
+- `src/assets/libs` – vendor libs (Three.js + Vanta).
+- `scripts/build-static.mjs` – builds a deployable `dist` folder.
 
-```
-viren-nexus-site
-├── src
-│   ├── pages
-│   │   ├── index.html               # Main landing page
-│   │   ├── answers.html             # Archive of answers
-│   │   ├── ask.html                 # Submit new questions
-│   │   ├── breakthroughs.html        # Showcase breakthroughs
-│   │   ├── research-engines.html     # Information on research engines
-│   │   ├── how-it-works.html        # Explanation of methodologies
-│   │   └── about.html               # Information about VIREN
-│   ├── assets
-│   │   ├── css
-│   │   │   └── styles.css           # Custom styles
-│   │   ├── js
-│   │   │   └── main.js              # JavaScript for interactivity
-│   │   └── libs
-│   │       ├── three.min.js         # 3D graphics library
-│   │       └── vanta.topology.min.js # Animated background library
-├── package.json                      # npm configuration file
-└── README.md                         # Project documentation
-```
+## Scripts
+- `npm start` / `npm run dev` – build then serve `dist` at `http://127.0.0.1:5173`.
+- `npm run build` – create `dist` with corrected asset paths for hosting.
+- `npm run preview` – serve the existing `dist` at `http://127.0.0.1:4173`.
 
-## Features
-- **Answer Archive**: Users can browse through a collection of answers provided by VIREN, with search and filter capabilities.
-- **Submit Questions**: Users can submit new questions to VIREN for consideration.
-- **Breakthroughs**: A dedicated section to showcase significant findings and advancements.
-- **Research Engines**: Information about the various research engines utilized by VIREN.
-- **Methodology Explanation**: Detailed insights into how VIREN operates and its research processes.
-- **Responsive Design**: The site is designed to be mobile-friendly and accessible across devices.
-
-## Setup Instructions
-1. Clone the repository:
-   ```
-   git clone <repository-url>
-   ```
-2. Navigate to the project directory:
-   ```
-   cd viren-nexus-site
-   ```
-3. Install dependencies:
-   ```
+## Local setup
+1) Install Node.js LTS from https://nodejs.org.  
+2) In PowerShell:
+   ```powershell
+   cd "C:\OneDrive\Desktop\Documents\viren vortex site\viren-nexus-site"
    npm install
+   npm start
    ```
-4. Open the `src/pages/index.html` file in a web browser to view the site.
+3) Edit files in `src/pages` and `src/assets`, then rerun `npm start` to rebuild/preview.
 
-## Usage
-- Navigate through the various pages using the navigation menu.
-- Use the search functionality on the answers page to find specific topics.
-- Submit new questions via the ask page.
+## Deployment (GitHub Pages)
+Push to the `main` branch. The workflow at `.github/workflows/deploy.yml` runs `npm run build` and publishes `dist` to `gh-pages`. In GitHub → Settings → Pages, set source to `gh-pages`. The site will be available at `https://YOUR-USER.github.io/YOUR-REPO/`.
 
-## License
-This project is licensed under the MIT License. See the LICENSE file for more details.
+See `README_FOR_USER.md` for a simpler step-by-step guide.

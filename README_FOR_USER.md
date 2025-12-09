@@ -1,46 +1,47 @@
-How to run and develop the VIREN NEXUS static site (step-by-step)
+VIREN NEXUS - quick start
 
-This short walkthrough will get your site running locally on Windows (PowerShell). Follow each step and you’ll have the site served and ready for edits.
+1) Install Node.js LTS (https://nodejs.org). This gives you `node` and `npm`.
 
-1) Open PowerShell
-
-2) Change into the project folder:
-
+2) Open PowerShell and move into the project:
 ```powershell
 cd "C:\OneDrive\Desktop\Documents\viren vortex site\viren-nexus-site"
 ```
 
-3) Install dependencies:
-
+3) Install the local dev tools (runs once):
 ```powershell
 npm install
 ```
 
-This installs `live-server` which is used to serve the static files during development.
-
-4) Start the dev server:
-
+4) Run the site locally (builds then serves from `dist`):
 ```powershell
 npm start
 ```
+Your browser should open at `http://127.0.0.1:5173`. If it does not, copy that URL into the address bar. Stop the server with `Ctrl + C`.
 
-`live-server` will open your default browser and serve files from `src/pages`. If it doesn't open automatically, note the port printed in the terminal (default in the script is 5173) and open `http://127.0.0.1:5173`.
+5) Edit content:
+- Pages live in `src/pages` (start with `index.html`).
+- Shared assets live in `src/assets` (CSS/JS/libs).
+- After edits, rerun `npm start` to rebuild and preview.
 
-5) Edit files
+6) Build for deployment:
+```powershell
+npm run build
+```
+This creates a static `dist` folder with the correct paths for hosting.
 
-- HTML pages are in `src/pages/` (open `index.html` to start).
-- Shared CSS/JS are in `src/assets/css/` and `src/assets/js/`.
+Deploying to GitHub Pages (automatic)
+-------------------------------------
+1) Create an empty repo on GitHub (e.g., `viren-nexus-site`).
+2) In PowerShell (inside this folder), run:
+```powershell
+git init
+git add .
+git commit -m "Initial site"
+git branch -M main
+git remote add origin https://github.com/YOUR-USER/YOUR-REPO.git
+git push -u origin main
+```
+3) In GitHub → Settings → Pages: set Source = "Deploy from a branch", Branch = `gh-pages`.
+4) Push any future changes to `main`. The workflow in `.github/workflows/deploy.yml` will run `npm run build` and publish `dist` to `gh-pages` automatically.
 
-6) Test interactivity
-
-- The site uses `main.js` and `scroll-animations.js`. After editing, refresh the browser to see changes.
-
-Optional: Create a Windows helper script
-
-If you'd like, I can add a `serve.ps1` script that runs `npm start` for you and prints the URL. Say the word and I'll add it.
-
-<<<<<<< Updated upstream
-Want a build pipeline or deployment? I can add a minimal `vite` setup and GitHub Pages deploy script or Netlify config. Tell me which you'd prefer and I’ll implement it.
-=======
-Want a build pipeline or deployment? I can add a minimal `vite` setup and GitHub Pages deploy script or Netlify config. Tell me which you'd prefer and I’ll implement it.
->>>>>>> Stashed changes
+Need help? Tell me what you want changed (text, colors, sections), and I’ll update the files for you.

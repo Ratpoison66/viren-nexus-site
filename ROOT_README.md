@@ -1,53 +1,22 @@
-VIREN NEXUS - Local development and deployment
-
-Overview
-
-This repository contains a static site for the VIREN NEXUS project. Pages are located in `src/pages/`. Assets are under `src/assets/`.
+VIREN NEXUS - local dev and deploy
 
 Quick start (Windows PowerShell)
-
-1. Open PowerShell and navigate to the project folder:
-
+1. Install Node.js LTS from https://nodejs.org.
+2. Navigate to the project folder:
 ```powershell
 cd "C:\OneDrive\Desktop\Documents\viren vortex site\viren-nexus-site"
 ```
+3. Install deps: `npm install`
+4. Serve locally (build + preview at http://127.0.0.1:5173): `npm start`
+5. Stop with `Ctrl + C`. Re-run `npm start` after edits to rebuild.
 
-2. Install dependencies (only `live-server` is required for local dev):
+Deploy (GitHub Pages)
+- Push to `main`; the workflow at `.github/workflows/deploy.yml` runs `npm run build` and publishes `dist` to `gh-pages`.
+- In GitHub → Settings → Pages, set source to `gh-pages`.
+- Site will appear at `https://YOUR-USER.github.io/YOUR-REPO/`.
 
-```powershell
-<<<<<<< Updated upstream
-npm install
-=======
-npm init -y
-npm install --save-dev live-server
->>>>>>> Stashed changes
-```
-
-3. Start the dev server and open the site in your browser:
-
-```powershell
-npm start
-```
-
-<<<<<<< Updated upstream
-The site will be served from the `src/pages` folder. If the browser doesn't open automatically, visit http://127.0.0.1:5173 (or the port printed by live-server).
-=======
-The site will be served from the `src/pages` folder. If the browser doesn't open automatically, visit <http://127.0.0.1:5173> (or the port printed by live-server).
->>>>>>> Stashed changes
-
-Project structure
-
-- `src/pages/` — HTML pages (index, answers, ask, breakthroughs, research-engines, how-it-works, about)
-- `src/assets/css/styles.css` — Global styles
-- `src/assets/js/main.js` — Shared JavaScript utilities
-- `src/assets/libs/` — Third-party libs (three.js, vanta)
-
-Notes
-
-- The pages already reference CDN versions of Tailwind, Font Awesome and Vanta/three where appropriate. Local copies are included in `src/assets/libs` for offline use in browsers that need them.
-- There is no build pipeline; this is a static-site layout served directly from `src/pages`.
-
-Next steps
-
-- If you want a production build (bundle/minify), I can add a simple build step using `esbuild` or `vite` and wire that into `npm run build`.
-- I can also deploy this to GitHub Pages or Netlify and add continuous deployment configuration.
+Folders
+- `src/pages` – HTML pages
+- `src/assets` – CSS/JS/vendor libs
+- `dist` – generated output (not committed)
+- `scripts/build-static.mjs` – build script that fixes asset paths for hosting

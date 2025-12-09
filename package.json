@@ -4,12 +4,11 @@
   "description": "A research portal for VIREN, featuring an archive of answers, breakthroughs, and research engines.",
   "main": "src/assets/js/main.js",
   "scripts": {
-    "dev": "npx live-server src/pages --port=5173 --open=src/pages/index.html",
+    "dev": "node scripts/build-static.mjs && npx live-server dist --port=5173 --open=index.html",
     "start": "npm run dev",
-    "vite:dev": "vite",
-    "build": "vite build",
-    "preview": "vite preview",
-    "build:info": "echo 'Build outputs to ./dist after running `npm run build`'"
+    "build": "node scripts/build-static.mjs",
+    "preview": "npx live-server dist --port=4173 --open=index.html",
+    "build:info": "echo \"Run 'npm run build' to produce ./dist for deployment\""
   },
   "keywords": [
     "VIREN",
@@ -22,9 +21,6 @@
   "license": "MIT",
   "dependencies": {
     "live-server": "^1.2.1"
-  },
-  "devDependencies": {
-    "vite": "^5.0.0"
   },
   "homepage": "https://yourwebsite.com",
   "repository": {
